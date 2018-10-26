@@ -10,10 +10,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.maximolopez.fragmentdemo.fragments.FormFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FormFragment.DataTransfer {
 
     private TextView mTextMessage;
 
@@ -75,5 +76,10 @@ public class MainActivity extends AppCompatActivity {
                 .show(fragment)
                 .commit();
         return true;
+    }
+
+    @Override
+    public void TextData(String data) {
+        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
     }
 }
